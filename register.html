@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSETI · Register | South Sudan Educational Technology Initiative</title>
+    <!-- Font Awesome 6 (icons) and Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0a3b5b;
+            --light-blue-bg: #e6f0f9;
+            --white: #ffffff;
+            --accent-gold: #f5c451;
+            --black: #1e2a36;
+            --gray-text: #3e4b5a;
+            --light-gray: #e9edf2;
+            --shadow: 0 15px 30px -10px rgba(0,30,50,0.15);
+            --font-main: 'Poppins', sans-serif;
+            --success-green: #28a745;
+            --error-red: #dc3545;
+            --info-blue: #17a2b8;
+        }
+
+        body {
+            background-color: var(--light-blue-bg);
+            color: var(--black);
+            font-family: var(--font-main);
+            line-height: 1.5;
+        }
+
+        .page-wrap {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ----- SUB HEADER (top bar with social icons) ----- */
+        .sub-header {
+            background-color: var(--navy);
+            padding: 0.8rem 2rem;
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 0 0 10px 10px;
+            margin-top: 1rem;
+        }
+
+        .left-content p {
+            font-size: 0.95rem;
+        }
+
+        .left-content em {
+            color: var(--accent-gold);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .right-icons ul {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+        }
+
+        .right-icons ul li a {
+            color: white;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+
+        .right-icons ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* ----- MAIN HEADER with navigation ----- */
+        .header {
+            background: var(--white);
+            padding: 1.2rem 2rem;
+            margin: 0.5rem 0 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-area img {
+            border-radius: 12px;
+            object-fit: cover;
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            color: var(--gray-text);
+            display: block;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav li {
+            position: relative;
+        }
+
+        .nav li a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.2s;
+            padding: 0.5rem 0;
+            display: block;
+        }
+
+        .nav li a:hover,
+        .nav li a.active {
+            color: var(--accent-gold);
+        }
+
+        .nav li a.active {
+            font-weight: 600;
+        }
+
+        /* Dropdown menu */
+        .has-sub .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 180px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .has-sub:hover .sub-menu {
+            display: block;
+        }
+
+        .sub-menu li {
+            list-style: none;
+        }
+
+        .sub-menu li a {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+
+        /* Contact header */
+        .contact-header {
+            display: flex;
+            gap: 2rem;
+            background: var(--light-blue-bg);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            border: 1px solid #d0dbe8;
+            font-size: 0.9rem;
+        }
+
+        .contact-header i {
+            color: var(--accent-gold);
+            margin-right: 0.3rem;
+        }
+
+        /* ----- PAGE TITLE (Register) ----- */
+        .page-title {
+            margin: 2rem 0 1.5rem;
+        }
+        
+        .page-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            border-left: 10px solid var(--accent-gold);
+            padding-left: 1.5rem;
+        }
+        
+        .page-title p {
+            color: var(--gray-text);
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+        }
+
+        /* ----- DYNAMIC DATE BAR ----- */
+        .info-bar {
+            background: var(--white);
+            border: 2px solid var(--navy);
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--light-gray);
+        }
+
+        .greeting-message {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .greeting-message i {
+            color: var(--accent-gold);
+            margin-right: 0.5rem;
+        }
+
+        .live-date {
+            background: var(--navy);
+            color: white;
+            padding: 0.5rem 2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 40px;
+        }
+
+        /* ----- REGISTER FORM CONTAINER ----- */
+        .register-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #d0dbe8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--navy));
+        }
+
+        .form-card h3 {
+            color: var(--navy);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-card > p {
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 1rem;
+        }
+
+        /* Progress Bar */
+        .form-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .form-progress::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--light-gray);
+            z-index: 1;
+        }
+
+        .progress-step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--gray-text);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: var(--accent-gold);
+            border-color: var(--navy);
+            color: var(--navy);
+            transform: scale(1.1);
+        }
+
+        .progress-step.completed {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: white;
+        }
+
+        .step-label {
+            position: absolute;
+            top: 45px;
+            font-size: 0.7rem;
+            color: var(--gray-text);
+            white-space: nowrap;
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 1.5rem;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .form-group.hidden {
+            display: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        .form-label i {
+            color: var(--accent-gold);
+            margin-right: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #d0dbe8;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: var(--font-main);
+            background: var(--light-blue-bg);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(245, 196, 81, 0.1);
+        }
+
+        .form-control.error {
+            border-color: var(--error-red);
+            background: rgba(220, 53, 69, 0.05);
+        }
+
+        .form-control.valid {
+            border-color: var(--success-green);
+            background: rgba(40, 167, 69, 0.05);
+        }
+
+        /* Validation Feedback */
+        .feedback-message {
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .feedback-message i {
+            font-size: 0.9rem;
+        }
+
+        .feedback-message.error {
+            color: var(--error-red);
+        }
+
+        .feedback-message.success {
+            color: var(--success-green);
+        }
+
+        /* Password Strength Meter */
+        .password-strength {
+            margin-top: 0.5rem;
+        }
+
+        .strength-bar {
+            height: 6px;
+            background: var(--light-gray);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.3rem;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0;
+            transition: all 0.3s ease;
+        }
+
+        .strength-text {
+            font-size: 0.8rem;
+            color: var(--gray-text);
+        }
+
+        /* Role Selection Cards */
+        .role-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-card {
+            border: 2px solid #d0dbe8;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .role-card.selected {
+            border-color: var(--navy);
+            background: linear-gradient(135deg, rgba(10, 59, 91, 0.05), rgba(245, 196, 81, 0.05));
+        }
+
+        .role-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .role-card h4 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .role-card p {
+            font-size: 0.8rem;
+            color: var(--gray-text);
+        }
+
+        /* Interests/Tags */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .interest-tag {
+            background: var(--light-blue-bg);
+            border: 1px solid #d0dbe8;
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .interest-tag:hover {
+            background: var(--accent-gold);
+            border-color: var(--navy);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .interest-tag.selected {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: white;
+        }
+
+        /* Terms Checkbox */
+        .terms-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .terms-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .terms-checkbox label {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        .terms-checkbox a {
+            color: var(--navy);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .terms-checkbox a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        /* Form Navigation Buttons */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn i {
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:disabled {
+            background: var(--light-gray);
+            color: var(--gray-text);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: var(--light-gray);
+            color: var(--navy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-text);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: var(--success-green);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Info Panel */
+        .info-panel {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #d0dbe8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-panel h3 {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid var(--accent-gold);
+            padding-left: 1rem;
+        }
+
+        .benefit-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .benefit-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            color: var(--gray-text);
+        }
+
+        .benefit-list li i {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        .testimonial {
+            background: var(--light-blue-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .stats-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--navy), #1b4f73);
+            border-radius: 16px;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        /* Success Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 3rem;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content i {
+            font-size: 4rem;
+            color: var(--success-green);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+        }
+
+        .modal-close {
+            background: var(--navy);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-gold);
+            color: var(--navy);
+        }
+
+        /* ----- FOOTER ----- */
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+            border-radius: 40px 40px 0 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .contact-header {
+                gap: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .sub-header {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            .right-icons ul {
+                justify-content: center;
+            }
+            .register-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .role-selection {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SUB HEADER (top bar with social icons) -->
+    <div class="sub-header">
+        <div class="left-content">
+            <p>This is an educational organization · <em>SSETI</em> South Sudan</p>
+        </div>
+        <div class="right-icons">
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-wrap">
+        <!-- MAIN HEADER with navigation (IDENTICAL TO OTHER PAGES) -->
+        <header class="header">
+            <div class="logo-area">
+                <img src="file:///C:/Users/Hope%20.In.Org/Desktop/SSETI/logo.jpg" alt="SSETI Logo" width="80" height="80">
+                <div class="logo-text">
+                    <h1>SOUTH SUDAN EDUCATIONAL<br>TECHNOLOGY INITIATIVE</h1>
+                    <span>SSETI · Digital Literacy for National Prosperity</span>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+              <ul class="nav">
+                <li><a href="project.html">Home</a></li>
+                <li><a href="about Us.html">About Us</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li class="has-sub"><a href="dd.html">Blog</a> 
+                </li>
+                <li><a href="contact me.html" class="active">Contact Us</a></li>
+            </ul>
+
+            <!-- Contact Info in Header -->
+            <div class="contact-header">
+                <div><i class="fas fa-phone-alt"></i> +256-775-876-997</div>
+                <div><i class="fas fa-envelope"></i> info@sseti.org.ss</div>
+                <div><i class="fas fa-map-marker-alt"></i> Juba, Muniki Street</div>
+            </div>
+        </header>
+
+        <!-- PAGE TITLE: REGISTER -->
+        <div class="page-title">
+            <h2><i class="fas fa-user-plus" style="color:var(--accent-gold); margin-right:1rem;"></i>Join SSETI</h2>
+            <p>Register to become part of South Sudan's educational technology community. Access resources, training, and networking opportunities.</p>
+        </div>
+
+        <!-- DYNAMIC DATE BAR -->
+        <div class="info-bar" id="dateBar"></div>
+
+        <!-- REGISTER FORM CONTAINER -->
+        <div class="register-container">
+            <!-- LEFT SIDE: REGISTRATION FORM -->
+            <div class="form-card">
+                <h3>Create Your Account</h3>
+                <p>Join our community of educators, innovators, and change-makers</p>
+
+                <!-- Progress Steps -->
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">
+                        1
+                        <span class="step-label">Personal Info</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        2
+                        <span class="step-label">Account Details</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        3
+                        <span class="step-label">Interests</span>
+                    </div>
+                </div>
+
+                <!-- STEP 1: PERSONAL INFORMATION -->
+                <div id="step1" class="form-step">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i> First Name *</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+                            <div class="feedback-message" id="firstNameFeedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i> Last Name *</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+                            <div class="feedback-message" id="lastNameFeedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-envelope"></i> Email Address *</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                        <div class="feedback-message" id="emailFeedback"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-phone-alt"></i> Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="+256 XXX XXX XXX">
+                            <div class="feedback-message" id="phoneFeedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-calendar"></i> Date of Birth</label>
+                            <input type="date" class="form-control" id="dob">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-map-marker-alt"></i> Location</label>
+                        <select class="form-control" id="location">
+                            <option value="">Select your state</option>
+                            <option value="central">Central Equatoria</option>
+                            <option value="eastern">Eastern Equatoria</option>
+                            <option value="western">Western Equatoria</option>
+                            <option value="jonglei">Jonglei</option>
+                            <option value="upper">Upper Nile</option>
+                            <option value="unity">Unity</option>
+                            <option value="warrap">Warrap</option>
+                            <option value="northern">Northern Bahr el Ghazal</option>
+                            <option value="western-bahr">Western Bahr el Ghazal</option>
+                            <option value="lakes">Lakes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- STEP 2: ACCOUNT DETAILS -->
+                <div id="step2" class="form-step hidden">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-user-circle"></i> Username *</label>
+                        <input type="text" class="form-control" id="username" placeholder="Choose a username" required>
+                        <div class="feedback-message" id="usernameFeedback"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-lock"></i> Password *</label>
+                        <input type="password" class="form-control" id="password" placeholder="Create a strong password" required>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span class="strength-text" id="strengthText">Enter a password</span>
+                        </div>
+                        <div class="feedback-message" id="passwordFeedback"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-lock"></i> Confirm Password *</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                        <div class="feedback-message" id="confirmPasswordFeedback"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-user-tag"></i> I am registering as: *</label>
+                        <div class="role-selection">
+                            <div class="role-card" data-role="educator">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <h4>Educator</h4>
+                                <p>Teacher, trainer, or education professional</p>
+                            </div>
+                            <div class="role-card" data-role="student">
+                                <i class="fas fa-user-graduate"></i>
+                                <h4>Student</h4>
+                                <p>Learner seeking digital skills</p>
+                            </div>
+                            <div class="role-card" data-role="partner">
+                                <i class="fas fa-handshake"></i>
+                                <h4>Partner</h4>
+                                <p>Organization or collaborator</p>
+                            </div>
+                            <div class="role-card" data-role="volunteer">
+                                <i class="fas fa-hands-helping"></i>
+                                <h4>Volunteer</h4>
+                                <p>Want to contribute your time/skills</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="selectedRole" value="">
+                    </div>
+                </div>
+
+                <!-- STEP 3: INTERESTS & PREFERENCES -->
+                <div id="step3" class="form-step hidden">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-tags"></i> Areas of Interest</label>
+                        <p style="font-size:0.8rem; color:var(--gray-text); margin-bottom:1rem;">Select all that apply</p>
+                        <div class="interests-grid" id="interestsGrid">
+                            <span class="interest-tag" data-interest="digital">Digital Literacy</span>
+                            <span class="interest-tag" data-interest="teaching">Teacher Training</span>
+                            <span class="interest-tag" data-interest="infrastructure">Infrastructure</span>
+                            <span class="interest-tag" data-interest="youth">Youth Programs</span>
+                            <span class="interest-tag" data-interest="girls">Girls in Tech</span>
+                            <span class="interest-tag" data-interest="content">Content Creation</span>
+                            <span class="interest-tag" data-interest="policy">Policy & Advocacy</span>
+                            <span class="interest-tag" data-interest="research">Research</span>
+                            <span class="interest-tag" data-interest="coding">Coding/Programming</span>
+                            <span class="interest-tag" data-interest="stem">STEM Education</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-bell"></i> How did you hear about us?</label>
+                        <select class="form-control" id="hearAbout">
+                            <option value="">Select an option</option>
+                            <option value="social">Social Media</option>
+                            <option value="friend">Friend/Colleague</option>
+                            <option value="event">Event/Workshop</option>
+                            <option value="school">School/University</option>
+                            <option value="radio">Radio</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="newsletter" checked>
+                        <label for="newsletter">Subscribe to our newsletter for updates and opportunities</label>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button class="btn btn-secondary" id="prevBtn" disabled>
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-success" id="submitBtn" style="display: none;">
+                        Complete Registration <i class="fas fa-check"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: INFO PANEL -->
+            <div class="info-panel">
+                <h3>Why Join SSETI?</h3>
+                
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <div class="stat-number">2,500+</div>
+                        <div>Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">45</div>
+                        <div>Partner Schools</div>
+                    </div>
+                </div>
+
+                <ul class="benefit-list">
+                    <li><i class="fas fa-check-circle"></i> Access to exclusive digital resources and tools</li>
+                    <li><i class="fas fa-check-circle"></i> Free workshops and training sessions</li>
+                    <li><i class="fas fa-check-circle"></i> Networking with educators and innovators</li>
+                    <li><i class="fas fa-check-circle"></i> Mentorship opportunities</li>
+                    <li><i class="fas fa-check-circle"></i> Project collaboration platform</li>
+                    <li><i class="fas fa-check-circle"></i> Newsletter with funding opportunities</li>
+                </ul>
+
+                <div class="testimonial">
+                    <p>"SSETI transformed my teaching practice. The digital literacy training opened new doors for my students."</p>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user-circle"></i>
+                        <div>
+                            <strong>Grace Akech</strong><br>
+                            <small>Teacher, Juba</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <p>"As a young innovator, SSETI gave me the platform to develop my coding skills and launch my first app."</p>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user-circle"></i>
+                        <div>
+                            <strong>Peter Malual</strong><br>
+                            <small>Student, Youth Innovator</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top:2rem; padding:1rem; background:linear-gradient(135deg, var(--accent-gold), #f5d67b); border-radius:16px; color:var(--navy); text-align:center;">
+                    <i class="fas fa-users" style="font-size:2rem; margin-bottom:0.5rem;"></i>
+                    <h4 style="margin-bottom:0.5rem;">Community Impact</h4>
+                    <p style="font-size:0.9rem;">Join 2,500+ members making a difference in South Sudan's education sector</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUCCESS MODAL -->
+        <div class="modal" id="successModal">
+            <div class="modal-content">
+                <i class="fas fa-check-circle"></i>
+                <h3>Registration Successful!</h3>
+                <p>Thank you for joining SSETI. A confirmation email has been sent to your inbox. Please verify your email to activate your account.</p>
+                <button class="modal-close" onclick="closeModal()">Continue</button>
+            </div>
+        </div>
+
+        <!-- FOOTER (IDENTICAL TO OTHER PAGES) -->
+        <footer class="footer">
+            <p><i class="fas fa-copyright"></i> 2026 South Sudan Educational Technology Initiative (SSETI) · Non-profit NGO</p>
+            <p style="margin:1rem 0;">P.O.BOX 05847, Juba · DFCU Bank</p>
+            <p><small>Digital Literacy for National Prosperity · Constitution January 11, 2026</small></p>
+            <p style="margin-top:1.5rem;"><a href="#"><i class="fas fa-arrow-up"></i> back to top</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ========== DYNAMIC DATE BAR ==========
+        const dateBar = document.getElementById('dateBar');
+        function updateDate() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString('en-US', options);
+            const hour = now.getHours();
+            let session = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : 'evening';
+            dateBar.innerHTML = `
+                <div class="greeting-message"><i class="fas fa-calendar-alt"></i> ${dateStr} · SSETI Juba headquarters</div>
+                <div class="live-date">${session} session</div>
+            `;
+        }
+        updateDate();
+        setInterval(updateDate, 60000);
+
+        // ========== MULTI-STEP FORM FUNCTIONALITY ==========
+        let currentStep = 1;
+        const totalSteps = 3;
+        
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const step3 = document.getElementById('step3');
+        
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        const progressSteps = document.querySelectorAll('.progress-step');
+        
+        // Form fields for validation
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const email = document.getElementById('email');
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const terms = document.getElementById('terms');
+        
+        // Update step display
+        function updateStepDisplay() {
+            // Show/hide steps
+            step1.classList.toggle('hidden', currentStep !== 1);
+            step2.classList.toggle('hidden', currentStep !== 2);
+            step3.classList.toggle('hidden', currentStep !== 3);
+            
+            // Update progress steps
+            progressSteps.forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                
+                if (stepNum === currentStep) {
+                    step.classList.add('active');
+                } else if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                }
+            });
+            
+            // Update buttons
+            prevBtn.disabled = currentStep === 1;
+            
+            if (currentStep === totalSteps) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'inline-flex';
+            } else {
+                nextBtn.style.display = 'inline-flex';
+                submitBtn.style.display = 'none';
+            }
+        }
+        
+        // Validate current step
+        function validateStep() {
+            let isValid = true;
+            
+            if (currentStep === 1) {
+                // Validate first name
+                if (!firstName.value.trim()) {
+                    showFeedback('firstNameFeedback', 'First name is required', 'error');
+                    firstName.classList.add('error');
+                    isValid = false;
+                } else {
+                    showFeedback('firstNameFeedback', 'Looks good', 'success');
+                    firstName.classList.remove('error');
+                    firstName.classList.add('valid');
+                }
+                
+                // Validate last name
+                if (!lastName.value.trim()) {
+                    showFeedback('lastNameFeedback', 'Last name is required', 'error');
+                    lastName.classList.add('error');
+                    isValid = false;
+                } else {
+                    showFeedback('lastNameFeedback', 'Looks good', 'success');
+                    lastName.classList.remove('error');
+                    lastName.classList.add('valid');
+                }
+                
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim()) {
+                    showFeedback('emailFeedback', 'Email is required', 'error');
+                    email.classList.add('error');
+                    isValid = false;
+                } else if (!emailRegex.test(email.value)) {
+                    showFeedback('emailFeedback', 'Please enter a valid email address', 'error');
+                    email.classList.add('error');
+                    isValid = false;
+                } else {
+                    showFeedback('emailFeedback', 'Valid email', 'success');
+                    email.classList.remove('error');
+                    email.classList.add('valid');
+                }
+            }
+            
+            if (currentStep === 2) {
+                // Validate username
+                if (!username.value.trim()) {
+                    showFeedback('usernameFeedback', 'Username is required', 'error');
+                    username.classList.add('error');
+                    isValid = false;
+                } else if (username.value.length < 4) {
+                    showFeedback('usernameFeedback', 'Username must be at least 4 characters', 'error');
+                    username.classList.add('error');
+                    isValid = false;
+                } else {
+                    showFeedback('usernameFeedback', 'Username available', 'success');
+                    username.classList.remove('error');
+                    username.classList.add('valid');
+                }
+                
+                // Validate password
+                if (!password.value) {
+                    showFeedback('passwordFeedback', 'Password is required', 'error');
+                    password.classList.add('error');
+                    isValid = false;
+                } else if (password.value.length < 8) {
+                    showFeedback('passwordFeedback', 'Password must be at least 8 characters', 'error');
+                    password.classList.add('error');
+                    isValid = false;
+                } else {
+                    showFeedback('passwordFeedback', 'Password strength: Good', 'success');
+                    password.classList.remove('error');
+                    password.classList.add('valid');
+                }
+                
+                // Validate confirm password
+                if (!confirmPassword.value) {
+                    showFeedback('confirmPasswordFeedback', 'Please confirm your password', 'error');
+                    confirmPassword.classList.add('error');
+                    isValid = false;
+                } else if (confirmPassword.value !== password.value) {
+                    showFeedback('confirmPasswordFeedback', 'Passwords do not match', 'error');
+                    confirmPassword.classList.add('error');
+                    isValid = false;
+                } else {
+                    showFeedback('confirmPasswordFeedback', 'Passwords match', 'success');
+                    confirmPassword.classList.remove('error');
+                    confirmPassword.classList.add('valid');
+                }
+                
+                // Validate role selection
+                const selectedRole = document.getElementById('selectedRole').value;
+                if (!selectedRole) {
+                    alert('Please select a role');
+                    isValid = false;
+                }
+            }
+            
+            if (currentStep === 3) {
+                // Validate terms
+                if (!terms.checked) {
+                    alert('Please agree to the Terms of Service and Privacy Policy');
+                    isValid = false;
+                }
+            }
+            
+            return isValid;
+        }
+        
+        // Show feedback message
+        function showFeedback(elementId, message, type) {
+            const feedback = document.getElementById(elementId);
+            feedback.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${message}`;
+            feedback.className = `feedback-message ${type}`;
+        }
+        
+        // Next button click
+        nextBtn.addEventListener('click', () => {
+            if (validateStep()) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStepDisplay();
+                }
+            }
+        });
+        
+        // Previous button click
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        });
+        
+        // Password strength meter
+        password.addEventListener('input', () => {
+            const strengthFill = document.getElementById('strengthFill');
+            const strengthText = document.getElementById('strengthText');
+            const value = password.value;
+            
+            let strength = 0;
+            if (value.length >= 8) strength++;
+            if (value.match(/[a-z]/) && value.match(/[A-Z]/)) strength++;
+            if (value.match(/\d/)) strength++;
+            if (value.match(/[^a-zA-Z\d]/)) strength++;
+            
+            const colors = ['#dc3545', '#ffc107', '#17a2b8', '#28a745'];
+            const texts = ['Weak', 'Fair', 'Good', 'Strong'];
+            
+            strengthFill.style.width = `${(strength / 4) * 100}%`;
+            strengthFill.style.background = colors[strength - 1] || '#dc3545';
+            strengthText.textContent = `Password strength: ${texts[strength - 1] || 'Very Weak'}`;
+        });
+        
+        // Role selection
+        document.querySelectorAll('.role-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('selectedRole').value = this.dataset.role;
+            });
+        });
+        
+        // Interest tags
+        document.querySelectorAll('.interest-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.classList.toggle('selected');
+            });
+        });
+        
+        // Submit button
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (validateStep()) {
+                // Show success modal
+                document.getElementById('successModal').classList.add('active');
+                
+                // Reset form after 3 seconds
+                setTimeout(() => {
+                    // Reset all fields
+                    document.querySelectorAll('.form-control').forEach(field => {
+                        field.value = '';
+                        field.classList.remove('valid', 'error');
+                    });
+                    
+                    // Reset role selection
+                    document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+                    
+                    // Reset interests
+                    document.querySelectorAll('.interest-tag').forEach(t => t.classList.remove('selected'));
+                    
+                    // Reset terms
+                    terms.checked = false;
+                    
+                    // Go back to step 1
+                    currentStep = 1;
+                    updateStepDisplay();
+                }, 3000);
+            }
+        });
+        
+        // Close modal function
+        window.closeModal = function() {
+            document.getElementById('successModal').classList.remove('active');
+        };
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('successModal');
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+        
+        // Real-time validation
+        firstName.addEventListener('input', () => {
+            if (firstName.value.trim()) {
+                firstName.classList.remove('error');
+                firstName.classList.add('valid');
+            } else {
+                firstName.classList.remove('valid');
+            }
+        });
+        
+        lastName.addEventListener('input', () => {
+            if (lastName.value.trim()) {
+                lastName.classList.remove('error');
+                lastName.classList.add('valid');
+            } else {
+                lastName.classList.remove('valid');
+            }
+        });
+        
+        email.addEventListener('input', () => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(email.value)) {
+                email.classList.remove('error');
+                email.classList.add('valid');
+            } else {
+                email.classList.remove('valid');
+            }
+        });
+        
+        // Initialize
+        updateStepDisplay();
+    </script>
+</body>
+</html>

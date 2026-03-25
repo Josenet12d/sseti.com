@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSETI · Home | South Sudan Educational Technology Initiative</title>
+    <!-- Font Awesome 6 (icons) and Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0a3b5b;
+            --light-blue-bg: #e6f0f9;
+            --white: #ffffff;
+            --accent-gold: #f5c451;
+            --black: #1e2a36;
+            --gray-text: #3e4b5a;
+            --light-gray: #e9edf2;
+            --shadow: 0 15px 30px -10px rgba(0,30,50,0.15);
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-blue-bg);
+            color: var(--black);
+            font-family: var(--font-main);
+            line-height: 1.5;
+        }
+
+        .page-wrap {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ----- SUB HEADER (top bar with social icons) ----- */
+        .sub-header {
+            background-color: var(--navy);
+            padding: 0.8rem 2rem;
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 0 0 10px 10px;
+            margin-top: 1rem;
+        }
+
+        .left-content p {
+            font-size: 0.95rem;
+        }
+
+        .left-content em {
+            color: var(--accent-gold);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .right-icons ul {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+        }
+
+        .right-icons ul li a {
+            color: white;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+
+        .right-icons ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* ----- MAIN HEADER with navigation ----- */
+        .header {
+            background: var(--white);
+            padding: 1.2rem 2rem;
+            margin: 0.5rem 0 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-area img {
+            border-radius: 12px;
+            object-fit: cover;
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            color: var(--gray-text);
+            display: block;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav li {
+            position: relative;
+        }
+
+        .nav li a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.2s;
+            padding: 0.5rem 0;
+            display: block;
+        }
+
+        .nav li a:hover,
+        .nav li a.active {
+            color: var(--accent-gold);
+        }
+
+        .nav li a.active {
+            font-weight: 600;
+        }
+
+        /* Dropdown menu */
+        .has-sub .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 180px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .has-sub:hover .sub-menu {
+            display: block;
+        }
+
+        .sub-menu li {
+            list-style: none;
+        }
+
+        .sub-menu li a {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+
+        /* Contact header */
+        .contact-header {
+            display: flex;
+            gap: 2rem;
+            background: var(--light-blue-bg);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            border: 1px solid #d0dbe8;
+            font-size: 0.9rem;
+        }
+
+        .contact-header i {
+            color: var(--accent-gold);
+            margin-right: 0.3rem;
+        }
+
+        /* ----- PAGE TITLE ----- */
+        .page-title {
+            margin: 2rem 0 1.5rem;
+        }
+        
+        .page-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            border-left: 10px solid var(--accent-gold);
+            padding-left: 1.5rem;
+        }
+        
+        .page-title p {
+            color: var(--gray-text);
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+        }
+
+        /* ----- IMAGE SLIDER ----- */
+        .slider-container {
+            width: 100%;
+            margin: 2rem 0 2.5rem;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--white);
+            position: relative;
+            aspect-ratio: 16 / 7;
+        }
+
+        .slider {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(10, 59, 91, 0.7);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: var(--navy);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.2);
+        }
+
+        /* ----- HERO with mission statement ----- */
+        .hero-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #1b4f73 100%);
+            border-radius: 30px;
+            padding: 2.8rem 3rem;
+            margin: 2rem 0 2rem;
+            color: white;
+            border-left: 8px solid var(--accent-gold);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .hero-content h2 span {
+            color: var(--accent-gold);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            max-width: 700px;
+            opacity: 0.95;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        /* ----- DYNAMIC DATE BAR ----- */
+        .info-bar {
+            background: var(--white);
+            border: 2px solid var(--navy);
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--light-gray);
+        }
+
+        .greeting-message {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .greeting-message i {
+            color: var(--accent-gold);
+            margin-right: 0.5rem;
+        }
+
+        .live-date {
+            background: var(--navy);
+            color: white;
+            padding: 0.5rem 2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 40px;
+        }
+
+        /* ----- ORGANIZATION DETAIL CARDS ----- */
+        .org-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .detail-card {
+            background: var(--white);
+            border: 1px solid #d0dbe8;
+            border-radius: 24px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: 0.2s;
+        }
+
+        .detail-card:hover {
+            box-shadow: 0 25px 40px -12px rgba(0,45,70,0.25);
+        }
+
+        .detail-card h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            border-left: 6px solid var(--accent-gold);
+            padding-left: 0.8rem;
+        }
+
+        .detail-card p {
+            margin-bottom: 0.5rem;
+            color: var(--gray-text);
+        }
+
+        .detail-card i {
+            color: var(--accent-gold);
+            width: 1.8rem;
+        }
+
+        .bank-detail {
+            background: var(--light-blue-bg);
+            padding: 0.8rem;
+            border-radius: 12px;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* ----- MISSION/VISION CARDS ----- */
+        .mission-section {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mission-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .mission-item i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            background: var(--light-blue-bg);
+            padding: 1rem;
+            border-radius: 60px;
+        }
+
+        .mission-item h4 {
+            margin: 1rem 0 0.5rem;
+            color: var(--navy);
+        }
+
+        /* ----- CONTACT PERSONS ----- */
+        .contact-persons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid #d0dbe8;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--accent-gold);
+        }
+
+        .contact-card h4 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card i {
+            color: var(--accent-gold);
+            width: 1.8rem;
+        }
+
+        /* ----- INTERACTIVE MEMBERSHIP PANEL ----- */
+        .interactive-panel {
+            background: var(--white);
+            border: 2px solid var(--navy);
+            border-radius: 40px;
+            padding: 2rem 2.5rem;
+            margin: 3rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 10px 10px 0 var(--light-gray);
+        }
+
+        .it-btn {
+            border: none;
+            background: var(--navy);
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .it-btn:hover {
+            background: var(--accent-gold);
+            color: var(--navy);
+        }
+
+        #memberCounter {
+            background: var(--light-blue-bg);
+            padding: 0.8rem 2.2rem;
+            border-radius: 60px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        /* ----- FOOTER ----- */
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+            border-radius: 40px 40px 0 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        @media (max-width: 1100px) {
+            .contact-header {
+                gap: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .sub-header {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            .right-icons ul {
+                justify-content: center;
+            }
+            
+            .contact-header {
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .mission-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .hero-content h2 { 
+                font-size: 1.8rem; 
+            }
+            
+            .slider-container { 
+                aspect-ratio: 16/9; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SUB HEADER (top bar with social icons) -->
+    <div class="sub-header">
+        <div class="left-content">
+            <p>This is an educational organization · <em>SSETI</em> South Sudan</p>
+        </div>
+        <div class="right-icons">
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-wrap">
+        <!-- MAIN HEADER with navigation (IDENTICAL ON ALL PAGES) -->
+        <header class="header">
+            <div class="logo-area">
+                <img src="file:///C:/Users/Hope%20.In.Org/Desktop/SSETI/logo.jpg" alt="SSETI Logo" width="80" height="80">
+                <div class="logo-text">
+                    <h1>SOUTH SUDAN EDUCATIONAL<br>TECHNOLOGY INITIATIVE</h1>
+                    <span>SSETI · Digital Literacy for National Prosperity</span>
+                </div>
+            </div>
+
+            <!-- Navigation Menu (IDENTICAL ON ALL PAGES, active class changes per page) -->
+             <ul class="nav">
+                <li><a href="project.html">Home</a></li>
+                <li><a href="about Us.html">About Us</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li class="has-sub"><a href="dd.html">Blog</a> 
+                </li>
+                <li><a href="contact me.html" class="active">Contact Us</a></li>
+            </ul>
+            <!-- Contact Info in Header (IDENTICAL ON ALL PAGES) -->
+            <div class="contact-header">
+                <div><i class="fas fa-phone-alt"></i> +256-775-876-997</div>
+               <div><i class="fas fa-envelope"></i> info@sseti.org.ss</div>
+                <div><i class="fas fa-map-marker-alt"></i> Juba, Muniki Street</div>
+            </div>
+        </header>
+
+        <!-- PAGE TITLE: HOME -->
+        <div class="page-title">
+            <h2><i class="fas fa-home" style="color:var(--accent-gold); margin-right:1rem;"></i>Welcome to SSETI</h2>
+            <p>South Sudan Educational Technology Initiative: Transforming education through digital innovation.</p>
+        </div>
+
+        <!-- IMAGE SLIDER -->
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <div class="slide"><img src="file:///C:/Users/Hope%20.In.Org/Desktop/SSETI/child.png" alt="Students learning with laptops"></div>
+                <div class="slide"><img src="file:///C:/Users/Hope%20.In.Org/Desktop/SSETI/tr.png" alt="Students learning with laptops"></div>
+                <div class="slide"><img src="file:///C:/Users/Hope%20.In.Org/Desktop/SSETI/teacher'.png" alt="Students learning with laptops"></div>
+                <div class="slide"><img src="file:///C:/Users/Hope%20.In.Org/Desktop/SSETI/stu.png" alt="Students learning with laptops"></div>
+                <div class="slide"><img src="file:///C:/Users/Hope%20.In.Org/Desktop/SSETI/workshop.png" alt="Students learning with laptops"></div>
+            </div>
+            <button class="slider-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+
+        <!-- HERO SECTION -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-calendar-check"></i> Constitution adopted January 11, 2026</div>
+                <h2>Digital Literacy <span>for National Prosperity</span></h2>
+                <p>Non-profit · Non-governmental · Non-political · Est. 2026</p>
+                <p style="margin-top:1.2rem;"><i class="fas fa-check-circle" style="color:var(--accent-gold);"></i> P.O.BOX 05847, Juba, Central Equatoria</p>
+            </div>
+        </div>
+
+        <!-- DYNAMIC DATE BAR -->
+        <div class="info-bar" id="dateBar"></div>
+
+        <!-- ORGANIZATION DETAILS -->
+        <div class="org-details-grid">
+            <div class="detail-card">
+                <h3><i class="fas fa-map-pin"></i> Registered Office</h3>
+                <p><i class="fas fa-envelope"></i> P.O.BOX 05847, Juba South Sudan</p>
+                <p><i class="fas fa-road"></i> Juba, Muniki Street 9 Block 12 B</p>
+                <p><i class="fas fa-map"></i> Central Equatoria, Muniku South Division</p>
+            </div>
+            <div class="detail-card">
+                <h3><i class="fas fa-user-tie"></i> Primary Contact</h3>
+                <p><i class="fas fa-user"></i> Mr. Joseph Louuba Felix Soro</p>
+                <p><i class="fas fa-phone"></i> +256-775-876-997</p>
+                <p><i class="fas fa-envelope"></i> josephlouuba19@gmail.com</p>
+                <p><i class="fas fa-fax"></i> Secondary/Third: to be assigned</p>
+            </div>
+            <div class="detail-card">
+                <h3><i class="fas fa-university"></i> Bank Account</h3>
+                <p><i class="fas fa-wallet"></i> Group: South Sudan Educational Technology Initiative</p>
+                <div class="bank-detail">
+                    <p><i class="fas fa-bank"></i> DFCU BANK</p>
+                    <p><i class="fas fa-hashtag"></i> Account number: [provided upon registration]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MISSION / VISION / VALUES -->
+        <div class="mission-section">
+            <h2 style="color:var(--navy); margin-bottom:1rem;">Our Foundation</h2>
+            <div class="mission-grid">
+                <div class="mission-item">
+                    <i class="fas fa-eye"></i>
+                    <h4>Vision</h4>
+                    <p>A digitally empowered South Sudan where every citizen has skills for the knowledge economy.</p>
+                </div>
+                <div class="mission-item">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>Mission</h4>
+                    <p>Integrating appropriate technology, building digital capacity, empowering youth creators.</p>
+                </div>
+                <div class="mission-item">
+                    <i class="fas fa-heart"></i>
+                    <h4>Core Values</h4>
+                    <p>Equity · Innovation · Integrity · Collaboration · Excellence · Sustainability</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PERSONS -->
+        <div class="contact-persons">
+            <div class="contact-card">
+                <h4><i class="fas fa-user-circle"></i> Mr. Joseph Louuba Felix Soro</h4>
+                <p><i class="fas fa-phone"></i> +256-775-876-997</p>
+                <p><i class="fas fa-envelope"></i> josephlouuba19@gmail.com</p>
+                <p><small>Primary contact person · Interim CEO</small></p>
+            </div>
+            <div class="contact-card">
+                <h4><i class="fas fa-building"></i> Headquarters Address</h4>
+                <p><i class="fas fa-mail-bulk"></i> P.O.BOX 05847, Juba</p>
+                <p><i class="fas fa-location-dot"></i> Muniki Street 9 Block 12B</p>
+                <p><i class="fas fa-flag"></i> Juba, Central Equatoria</p>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE MEMBERSHIP COUNTER -->
+        <div class="interactive-panel">
+            <div><i class="fas fa-users" style="font-size:2rem; color:var(--navy);"></i> <span style="font-size:1.3rem; margin-left:0.5rem;">SSETI members</span></div>
+            <button class="it-btn" id="memberBtn"><i class="fas fa-sync-alt"></i> update</button>
+            <div id="memberCounter">28</div>
+        </div>
+
+        <!-- FOOTER (IDENTICAL ON ALL PAGES) -->
+        <footer class="footer">
+            <p><i class="fas fa-copyright"></i> 2026 South Sudan Educational Technology Initiative (SSETI) · Non-profit NGO</p>
+            <p style="margin:1rem 0;">P.O.BOX 05847, Juba · DFCU Bank</p>
+            <p><small>Digital Literacy for National Prosperity · Constitution January 11, 2026</small></p>
+            <p style="margin-top:1.5rem;"><a href="#"><i class="fas fa-arrow-up"></i> back to top</a></p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT (IDENTICAL FUNCTIONALITY ON ALL PAGES) -->
+    <script>
+        (function() {
+            // IMAGE SLIDER
+            const slider = document.getElementById('slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('sliderDots');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            // Create dots
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.dataset.index = i;
+                dotsContainer.appendChild(dot);
+            }
+            const dots = document.querySelectorAll('.dot');
+            dots[0].classList.add('active');
+
+            function updateSlider(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+                currentIndex = index;
+            }
+
+            prevBtn.addEventListener('click', () => updateSlider(currentIndex - 1));
+            nextBtn.addEventListener('click', () => updateSlider(currentIndex + 1));
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const idx = parseInt(e.target.dataset.index);
+                    updateSlider(idx);
+                });
+            });
+
+            // Auto slide every 5 seconds
+            setInterval(() => updateSlider(currentIndex + 1), 5000);
+
+            // DYNAMIC DATE BAR
+            const dateBar = document.getElementById('dateBar');
+            function updateDate() {
+                const now = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const dateStr = now.toLocaleDateString('en-US', options);
+                const hour = now.getHours();
+                let session = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : 'evening';
+                dateBar.innerHTML = `
+                    <div class="greeting-message"><i class="fas fa-calendar-alt"></i> ${dateStr} · SSETI Juba headquarters</div>
+                    <div class="live-date">${session} session</div>
+                `;
+            }
+            updateDate();
+            setInterval(updateDate, 60000);
+
+            // MEMBER COUNTER
+            const counterDisplay = document.getElementById('memberCounter');
+            const memberBtn = document.getElementById('memberBtn');
+            let count = 28;
+            memberBtn.addEventListener('click', () => {
+                count = count + 1;
+                if (count > 42) count = 28;
+                counterDisplay.innerText = count;
+                if (count % 3 === 0) {
+                    counterDisplay.style.background = '#f5c451';
+                    counterDisplay.style.color = '#0a3b5b';
+                } else {
+                    counterDisplay.style.background = '#e6f0f9';
+                    counterDisplay.style.color = '#0a3b5b';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
